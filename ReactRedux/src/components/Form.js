@@ -31,17 +31,16 @@ class ConnectedForm extends Component {
 
     return (
       <form onSubmit={this.handleSubmit} className="input">
-        <div className="form-group">
+        <div className="leftpanel">
           <input
             type="text"
             className="form"
             id="title"
             value={title}
             onChange={this.handleChange}
+            placeholder="+ Ajouter une tache..."
           />
         </div>
-        <br />
-        <button type="submit">Ajouter</button>
       </form>
     );
   }

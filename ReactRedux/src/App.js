@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import List from "./components/List";
-import Form from "./components/Form";
-import "./App.css";
+import ActionBar from "../src/components/ActionBar";
+import Header from "./components/Header";
+import TitleBar from "./components/TitleBar";
+import Main from "./components/Main";
+import "./CSS/main.css";
 
 class App extends Component {
   constructor(props) {
@@ -11,10 +13,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        Items
-        <List />
-        <Form />
+      <div className="bg">
+        <Header />
+        <TitleBar />
+        <ActionBar />
+        <Main />
       </div>
     );
   }

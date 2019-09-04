@@ -25,14 +25,26 @@ class ConnectedList extends Component {
     console.log(mapDispatchToProps());
     let items = this.props.items;
     return (
-      <ul>
-        {items.length > 0 &&
-          items.map((el, index) => (
-            <button onClick={() => this.delete(index)} key={index}>
-              {el.title}
-            </button>
-          ))}
-      </ul>
+      <div className="rightpanel">
+        <ul className="ulperso">
+          {items.length > 0 &&
+            items.map((el, index) => (
+              /* <button onClick={() => this.delete(index)} key={index}>
+                {el.title}
+              </button> */
+              <div className="five taskrectangle">
+                <img
+                  src="../../assets/images/Profile_pic.png"
+                  alt="profilepicture"
+                  className="profilpic"
+                />
+                <p className="task" classkey={index}>
+                  {el.title}
+                </p>
+              </div>
+            ))}
+        </ul>
+      </div>
     );
   }
 }

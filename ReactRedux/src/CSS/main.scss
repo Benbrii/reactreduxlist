@@ -1,0 +1,149 @@
+$colors: (
+  primary: #fff,
+  secondary: #e74c3c,
+  third: #f7f8f9,
+  fourth: #292b2c
+);
+
+$fonts: (
+  primary: "Roboto Medium"
+);
+
+body,
+html {
+  height: 100%;
+}
+
+// Body
+
+body,
+html {
+  font-family: "Roboto";
+  margin: 0;
+
+  .bg {
+    background-color: map-get($colors, primary);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+  .scdbg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    margin-left: 360px;
+  }
+  .logo {
+    width: 120px;
+    height: 47px;
+    margin-top: 5px;
+  }
+  .titletaskbg {
+    width: 360px;
+    height: 60px;
+    box-shadow: inset 0 -1px 0 #e4e8eb;
+    background-color: map-get($colors, secondary);
+  }
+  .titletask {
+    width: 142px;
+    height: 28px;
+    color: map-get($colors, primary);
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 20px;
+    margin-left: 10px;
+  }
+  .titletaskselected {
+    color: #252627;
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .rectanglebutton {
+    width: 202px;
+    height: 32px;
+    border-radius: 3px;
+    border: 1px solid #e4e8eb;
+    background-color: map-get($colors, primary);
+    margin-top: 10%;
+  }
+  .crosscheck {
+    margin-right: 85%;
+    margin-top: 3%;
+  }
+  .markasdone {
+    width: 150px;
+    height: 15px;
+    color: #9b9c9c;
+    font-family: map-get($fonts, primary);
+    font-size: 10.8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: -15px;
+    margin-left: 15%;
+  }
+  .leftpanel {
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 -1px 0 #e4e8eb;
+    background-color: map-get($colors, primary);
+  }
+  .form {
+    width: 165px;
+    height: 28px;
+    color: #c4c4c4;
+    font-family: map-get($fonts, primary);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 28px;
+    border: none;
+    margin-top: 3%;
+    margin-left: 3%;
+  }
+  .taskrectangle {
+    width: 360px;
+    height: 80px;
+    background-color: map-get($colors, primary);
+  }
+  .ulperso {
+    width: 5vw;
+  }
+  .task {
+    width: 109px;
+    height: 21px;
+    color: map-get($colors, fourth);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    margin-top: -13.5%;
+    margin-left: 13.5%;
+  }
+}
+
+// Grid
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax(100px);
+}
+.one {
+  grid-column: 1 / 6;
+  grid-row: 1;
+}
+.two {
+  grid-column: 6 / 11;
+  grid-row: 1;
+}
+.three {
+  grid-column: 11 / 12;
+  grid-row: 1;
+}
+.four {
+  grid-column: 4 / 12;
+  grid-row: 1;
+}
+.five {
+  grid-column: 1 / 2;
+  grid-row: 1;
+}
