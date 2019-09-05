@@ -9,8 +9,8 @@ class ConnectedTitleBar extends Component {
   }
 
   render() {
-    //console.log(this.state.task);
-    //console.log(this.props.items);
+    const { tasktitle } = this.props;
+    console.log(tasktitle);
 
     return (
       <div className="wrapper">
@@ -32,9 +32,7 @@ class ConnectedTitleBar extends Component {
 }
 
 const mapStateToProps = state => {
-  return {
-    items: state.items
-  };
+  return { tasktitle: state.task.tasktitle };
 };
 
 const TitleBar = connect(

@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import * as actionTypes from "../actions/index";
+import { setTasktitle } from "../actions/task.action";
+// import * as actionTypes from "../actions/index";
 import Profile_pic from "../assets/images/Profile_pic.png";
 
 class ConnectedList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: null
+      tasktitle: null
     };
   }
 
@@ -16,8 +17,9 @@ class ConnectedList extends Component {
   }
 
   render() {
-    const { items } = this.props;
-    console.log(items);
+    const { items, setTasktitle } = this.props;
+    const { tasktitle } = this.state;
+    //console.log(items);
 
     return (
       <div className="rightpanel">
@@ -27,12 +29,15 @@ class ConnectedList extends Component {
               /* <button onClick={() => this.delete(index)} key={index}>
                 {el.title}
               </button> */
-              <div className="five taskrectangle">
+              <div className="five taskrectangle" key={index}>
                 <img
                   src={Profile_pic}
                   alt="profilepicture"
                   className="profilpic"
                   key={item}
+                  onClick={() =>
+                    setTasktitle(item.title) && console.log(tasktitle)
+                  }
                 />
                 <p className="task" classkey={index}>
                   {item.title}
@@ -51,7 +56,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    deleteItem: index => dispatch(actionTypes.deleteItem(index))
+    setTasktitle: tasktitle => dispatch(setTasktitle(tasktitle))
+    // deleteItem: index => dispatch(actionTypes.deleteItem(index))
   };
 };
 
