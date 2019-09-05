@@ -1,14 +1,28 @@
-import { createStore, compose } from "redux";
-import rootReducer from "../reducers/index";
+import { applyMiddleware, createStore, compose } from "redux";
+import { persistStore, persistReducer } from "redux-persist";
+import { routerMiddleware } from "react-router-redux";
+import thunk from "redux-thunk";
+import promise from "redux-promise-middleware";
+import createHistory from "history/createBrowserHistory";
+import reducers from "../reducers";
+import localForage from "localforage";
+import { composeWithDevTools } from "redux-devtools-extension";
 
-const composeEnhancers =
-  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
-    : compose;
+export const history = createHistory();
 
-const enhancer = composeEnhancers();
-const store = createStore(rootReducer, enhancer);
+const middlewares = [promise, thunk, routerMiddleware(history)];
 
-//const store = createStore(rootReducer);
+const persistConfig = {
+  key: "root",
+  storage: localForage,
+  blacklist: []
+};
 
-export default store;
+export const store = createStore(
+  persistReducer(persistConfig, reducers),
+  process.env.NODE_ENV === "development"
+    ? composeWithDevTools(applyMiddleware(...middlewares))
+    : compose(applyMiddleware(...middlewares))
+);
+
+export const persistor = persistStore(store);

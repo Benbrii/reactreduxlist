@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Logo from "../assets/images/Logo.png";
 
 class Header extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class Header extends Component {
   render() {
     return (
       <div>
-        <img className="logo" src="../../assets/images/Logo.png" alt="logo" />
+        <img className="logo" src={Logo} alt="logo" />
       </div>
     );
   }

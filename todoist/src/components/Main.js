@@ -6,11 +6,7 @@ class Main extends Component {
     this.state = {};
   }
   render() {
-    return (
-      <div className="wrapper">
-        <div className="four scdbg"></div>
-      </div>
-    );
+    return <div>ok</div>;
   }
 }
 

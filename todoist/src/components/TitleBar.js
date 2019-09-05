@@ -1,11 +1,17 @@
 import React, { Component } from "react";
+import crossShape from "../assets/icones/Shape.png";
+import { connect } from "react-redux";
 
-class TitleBar extends Component {
+class ConnectedTitleBar extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
   render() {
+    //console.log(this.state.task);
+    //console.log(this.props.items);
+
     return (
       <div className="wrapper">
         <div className="one titletaskbg">
@@ -16,11 +22,7 @@ class TitleBar extends Component {
         </div>
         <div className="tree">
           <button className="rectanglebutton">
-            <img
-              src="../../assets/icones/Shape.png"
-              alt="crosscheck"
-              className="crosscheck"
-            />
+            <img src={crossShape} alt="crosscheck" className="crosscheck" />
             <p className="markasdone">Marquer comme terminé</p>
           </button>
         </div>
@@ -28,5 +30,16 @@ class TitleBar extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    items: state.items
+  };
+};
+
+const TitleBar = connect(
+  mapStateToProps,
+  null
+)(ConnectedTitleBar);
 
 export default TitleBar;

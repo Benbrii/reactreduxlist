@@ -17,15 +17,18 @@ class ConnectedForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange(event) {
     this.setState({ [event.target.id]: event.target.value });
   }
+
   handleSubmit(event) {
     event.preventDefault();
     const { title } = this.state;
     this.props.addItem({ title });
     this.setState({ title: "" });
   }
+
   render() {
     const { title } = this.state;
 

@@ -21,18 +21,13 @@ html {
   font-family: "Roboto";
   margin: 0;
 
-  .bg {
-    background-color: map-get($colors, primary);
+  .App {
+    //background-color: map-get($colors, third);
+    //clip-path: polygon(30% 17%, 100% 17%, 100% 100%, 30% 100%);
     width: 100%;
     height: 100%;
     position: absolute;
-  }
-  .scdbg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: red;
-    margin-left: 360px;
+    z-index: -1;
   }
   .logo {
     width: 120px;
@@ -49,10 +44,11 @@ html {
     width: 142px;
     height: 28px;
     color: map-get($colors, primary);
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 900;
     line-height: 20px;
     margin-left: 10px;
+    margin-top: 5.5%;
   }
   .titletaskselected {
     color: #252627;
@@ -105,8 +101,13 @@ html {
     height: 80px;
     background-color: map-get($colors, primary);
   }
+  /* .taskrectangle :hover {
+    background-color: map-get($colors, secondary);
+    background-position: left 10px;
+  } */
   .ulperso {
-    width: 5vw;
+    width: 1vw;
+    margin-top: 20%;
   }
   .task {
     width: 109px;

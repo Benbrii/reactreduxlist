@@ -1,45 +1,41 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actionTypes from "../actions/index";
-
-const mapStateToProps = state => {
-  return { items: state.items };
-};
-
-const mapDispatchToProps = dispatch => {
-  return { deleteItem: index => dispatch(actionTypes.deleteItem(index)) };
-};
+import Profile_pic from "../assets/images/Profile_pic.png";
 
 class ConnectedList extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      title: null
+    };
   }
 
   delete(index) {
-    console.log(index);
     this.props.deleteItem(index);
   }
 
   render() {
-    console.log(mapDispatchToProps());
-    let items = this.props.items;
+    const { items } = this.props;
+    console.log(items);
+
     return (
       <div className="rightpanel">
         <ul className="ulperso">
           {items.length > 0 &&
-            items.map((el, index) => (
+            items.map((item, index) => (
               /* <button onClick={() => this.delete(index)} key={index}>
                 {el.title}
               </button> */
               <div className="five taskrectangle">
                 <img
-                  src="../../assets/images/Profile_pic.png"
+                  src={Profile_pic}
                   alt="profilepicture"
                   className="profilpic"
+                  key={item}
                 />
                 <p className="task" classkey={index}>
-                  {el.title}
+                  {item.title}
                 </p>
               </div>
             ))}
@@ -48,6 +44,16 @@ class ConnectedList extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return { items: state.task.items };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteItem: index => dispatch(actionTypes.deleteItem(index))
+  };
+};
 
 const List = connect(
   mapStateToProps,
