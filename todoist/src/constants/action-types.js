@@ -1,3 +1,3 @@
 export const ADD_ITEM = "ADD_ITEM";
-export const REMOVE_ITEM = "REMOVE_ITEM";
-export const SET_TASKTITLE = "SET_TASKTITLE";
+export const COMPLETED_ITEM = "COMPLETED_ITEM";
+export const SET_ID_ACTIVE = "SET_ID_ACTIVE";

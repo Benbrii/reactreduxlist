@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import crossShape from "../assets/icones/Shape.png";
 import { connect } from "react-redux";
+import { completedItem } from "../actions/index";
 
 class ConnectedTitleBar extends Component {
   constructor(props) {
@@ -9,8 +10,7 @@ class ConnectedTitleBar extends Component {
   }
 
   render() {
-    const { tasktitle } = this.props;
-    console.log(tasktitle);
+    const { idActive, items, completedItem } = this.props;
 
     return (
       <div className="wrapper">
@@ -18,10 +18,18 @@ class ConnectedTitleBar extends Component {
           <p className="titletask">Toutes les tâches</p>
         </div>
         <div className="two">
-          <p className="titletaskselected">Sélectionner une tâche</p>
+          <p className="titletaskselected">
+            {idActive !== null && idActive !== undefined
+              ? items[idActive].title
+              : "Sélectionner une tâche..."}
+          </p>
         </div>
         <div className="tree">
-          <button className="rectanglebutton">
+          <button
+            className="rectanglebutton"
+            onClick={() => completedItem(idActive)}
+            value={idActive}
+          >
             <img src={crossShape} alt="crosscheck" className="crosscheck" />
             <p className="markasdone">Marquer comme terminé</p>
           </button>
@@ -32,12 +40,19 @@ class ConnectedTitleBar extends Component {
 }
 
 const mapStateToProps = state => {
-  return { tasktitle: state.task.tasktitle };
+  return { idActive: state.task.idActive, items: state.task.items };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    completedItem: payload => dispatch(completedItem(payload))
+    // deleteItem: index => dispatch(actionTypes.deleteItem(index))
+  };
 };
 
 const TitleBar = connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(ConnectedTitleBar);
 
 export default TitleBar;

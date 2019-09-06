@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ActionBar from "../src/components/ActionBar";
 import Header from "./components/Header";
 import TitleBar from "./components/TitleBar";
-// import Main from "./components/Main";
+import Main from "./components/Main";
 import "./CSS/main.css";
 
 class App extends Component {
@@ -18,6 +18,11 @@ class App extends Component {
         <Header />
         <TitleBar />
         <ActionBar />
+        <div className="wrapper">
+          <div className="six">
+            <Main />
+          </div>
+        </div>
       </div>
     );
   }

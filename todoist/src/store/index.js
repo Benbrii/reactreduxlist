@@ -15,7 +15,7 @@ const middlewares = [promise, thunk, routerMiddleware(history)];
 const persistConfig = {
   key: "root",
   storage: localForage,
-  blacklist: []
+  blacklist: ["task"]
 };
 
 export const store = createStore(

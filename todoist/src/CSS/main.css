@@ -3,14 +3,14 @@ html {
   height: 100%;
 }
 
+div {
+  background-color: #fff;
+}
+
 body,
 html {
   font-family: "Roboto";
   margin: 0;
-  /* .taskrectangle :hover {
-    background-color: map-get($colors, secondary);
-    background-position: left 10px;
-  } */
 }
 
 body .App,
@@ -54,6 +54,7 @@ html .titletaskselected {
   color: #252627;
   font-size: 20px;
   line-height: 28px;
+  margin-left: 5vw;
 }
 
 body .rectanglebutton,
@@ -87,8 +88,8 @@ html .markasdone {
 
 body .leftpanel,
 html .leftpanel {
-  width: 100%;
-  height: 100%;
+  width: 360px;
+  height: 50px;
   -webkit-box-shadow: inset 0 -1px 0 #e4e8eb;
           box-shadow: inset 0 -1px 0 #e4e8eb;
   background-color: #fff;
@@ -111,14 +112,22 @@ html .form {
 body .taskrectangle,
 html .taskrectangle {
   width: 360px;
-  height: 80px;
+  height: 60px;
   background-color: #fff;
 }
 
 body .ulperso,
 html .ulperso {
   width: 1vw;
-  margin-top: 20%;
+  padding: 0;
+}
+
+body .taskrectangle:hover,
+html .taskrectangle:hover {
+  border-left: 4px solid #f76c6c;
+  color: #263238;
+  font-weight: bold;
+  padding-left: 10px;
 }
 
 body .task,
@@ -131,6 +140,86 @@ html .task {
   line-height: 20px;
   margin-top: -13.5%;
   margin-left: 13.5%;
+}
+
+body .mainbutton,
+html .mainbutton {
+  width: 148px;
+  height: 42px;
+  -webkit-box-shadow: 0 3px 10px #e4e8eb;
+          box-shadow: 0 3px 10px #e4e8eb;
+  border-radius: 25px;
+}
+
+body .icon_oval,
+html .icon_oval {
+  margin-right: 85%;
+  margin-top: 3%;
+}
+
+body .position_of_plus,
+html .position_of_plus {
+  margin-left: 1%;
+  margin-top: -2.5%;
+  position: absolute;
+  color: grey;
+}
+
+body .position_of_clock,
+html .position_of_clock {
+  margin-left: 0.7%;
+  margin-top: -2.3%;
+  position: absolute;
+}
+
+body .position_of_button_name,
+html .position_of_button_name {
+  margin-top: -17%;
+  margin-left: 5%;
+  text-transform: uppercase;
+}
+
+body .description_rectangle,
+html .description_rectangle {
+  height: 80%;
+  width: 80%;
+  margin-left: 9%;
+}
+
+body .description_title,
+html .description_title {
+  margin-left: 10%;
+}
+
+body .input_description_inner,
+html .input_description_inner {
+  width: 90%;
+  height: 60%;
+  border-radius: 2px;
+  border: 1px solid #e4e8eb;
+  margin-left: 5%;
+}
+
+body .comment_button,
+html .comment_button {
+  width: 120px;
+  height: 32px;
+  border-radius: 3px;
+  background-color: #e74c3c;
+  margin-left: 60%;
+  margin-top: 2%;
+}
+
+body .commenter,
+html .commenter {
+  width: 77px;
+  height: 14px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-top: 5%;
+  margin-left: 10%;
 }
 
 .wrapper {
@@ -179,5 +268,16 @@ html .task {
   grid-column: 1 / 2;
   -ms-grid-row: 1;
   grid-row: 1;
+}
+
+.six {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 8;
+  grid-column: 4 / 12;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  background-color: #f7f8f9;
+  width: 100%;
+  height: 400px;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setTasktitle } from "../actions/task.action";
+import { setIdActive } from "../actions/idactive.action";
 // import * as actionTypes from "../actions/index";
 import Profile_pic from "../assets/images/Profile_pic.png";
 
 class ConnectedList extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      tasktitle: null
-    };
+    this.state = {};
   }
 
   delete(index) {
@@ -17,8 +15,7 @@ class ConnectedList extends Component {
   }
 
   render() {
-    const { items, setTasktitle } = this.props;
-    const { tasktitle } = this.state;
+    const { items, setIdActive } = this.props;
     //console.log(items);
 
     return (
@@ -29,15 +26,16 @@ class ConnectedList extends Component {
               /* <button onClick={() => this.delete(index)} key={index}>
                 {el.title}
               </button> */
-              <div className="five taskrectangle" key={index}>
+              <div
+                className="five taskrectangle"
+                key={index}
+                onClick={() => setIdActive(index)}
+              >
                 <img
                   src={Profile_pic}
                   alt="profilepicture"
                   className="profilpic"
                   key={item}
-                  onClick={() =>
-                    setTasktitle(item.title) && console.log(tasktitle)
-                  }
                 />
                 <p className="task" classkey={index}>
                   {item.title}
@@ -51,12 +49,12 @@ class ConnectedList extends Component {
 }
 
 const mapStateToProps = state => {
-  return { items: state.task.items };
+  return { items: state.task.items, idActive: state.task.idActive };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    setTasktitle: tasktitle => dispatch(setTasktitle(tasktitle))
+    setIdActive: idActive => dispatch(setIdActive(idActive))
     // deleteItem: index => dispatch(actionTypes.deleteItem(index))
   };
 };
