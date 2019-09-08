@@ -16,7 +16,7 @@ class ConnectedList extends Component {
 
   render() {
     const { items, setIdActive } = this.props;
-    //console.log(items);
+    console.log(items);
 
     return (
       <div className="rightpanel">
@@ -49,8 +49,14 @@ class ConnectedList extends Component {
 }
 
 const mapStateToProps = state => {
-  return { items: state.task.items, idActive: state.task.idActive };
+  return {
+    items: state.task.items, idActive: state.task.idActive, itemsCompleted: state.task.itemsCompleted
+  }
+  /* return {
+    items: items.filter((item => item === itemsCompleted ))
+  }*/
 };
+
 
 const mapDispatchToProps = dispatch => {
   return {

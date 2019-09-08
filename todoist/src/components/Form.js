@@ -2,11 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addItem } from "../actions/index";
 
-function mapDispatchToProps(dispatch) {
-  return {
-    addItem: item => dispatch(addItem(item))
-  };
-}
 class ConnectedForm extends Component {
   constructor() {
     super();
@@ -48,6 +43,13 @@ class ConnectedForm extends Component {
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addItem: item => dispatch(addItem(item))
+  };
+}
+
 const Form = connect(
   null,
   mapDispatchToProps

@@ -15,12 +15,7 @@ const task = (state = initialState, action) => {
     case idConst.SET_ID_ACTIVE:
       return { ...state, idActive: action.payload };
     case itemConst.COMPLETED_ITEM:
-      let newitems = state.items.filter(function(item) {
-        console.log(state.items);
-        console.log(state.idActive);
-        return item !== state.idActive;
-      });
-      //return {...state, itemsCompleted: action.payload};
+      let newitems = state.items.filter((item, i) => i !== state.idActive);
       return { ...state, items: newitems, itemsCompleted: action.payload };
 
     //{ ...state, itemsCompleted: action.payload };
