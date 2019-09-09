@@ -64,6 +64,7 @@ html .rectanglebutton {
   border: 1px solid #e4e8eb;
   background-color: #fff;
   margin-top: 6%;
+  outline: none;
 }
 
 body .crosscheck,
@@ -114,13 +115,20 @@ html .form {
   border: none;
   margin-top: 3%;
   margin-left: 3%;
+  outline: none;
 }
 
 body .descriptionform,
 html .descriptionform {
-  width: 99%;
-  height: 184px;
+  width: 97%;
+  height: 180px;
   border: none;
+  outline: none;
+  text-align: left;
+  padding: 10px;
+  font-family: "Roboto Medium";
+  font-size: 16px;
+  font-weight: 500;
 }
 
 body .taskrectangle,
@@ -183,6 +191,15 @@ html .mainbutton {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  outline: none;
+  margin-left: 3%;
+  margin-bottom: 3%;
+}
+
+body .datepickermodal,
+html .datepickermodal {
+  position: absolute;
+  z-index: 1;
 }
 
 body .position_of_plus,
@@ -207,7 +224,7 @@ html .position_of_button_name {
 
 body .description_rectangle,
 html .description_rectangle {
-  height: 80%;
+  height: 85%;
   width: 100%;
 }
 
@@ -231,8 +248,13 @@ html .comment_button {
   height: 32px;
   border-radius: 3px;
   background-color: #e74c3c;
-  margin-left: 60%;
-  margin-top: 2%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-left: 79%;
+  margin-top: 1.5%;
+  border: 1px solid #c4e8eb;
+  outline: none;
 }
 
 body .commenter,
@@ -316,5 +338,8 @@ html .icon_paper_pen {
   width: 105%;
   height: 400px;
   padding: 4%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 /*# sourceMappingURL=main.css.map */

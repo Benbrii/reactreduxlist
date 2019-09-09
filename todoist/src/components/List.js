@@ -16,7 +16,6 @@ class ConnectedList extends Component {
 
   render() {
     const { items, setIdActive } = this.props;
-    console.log(items);
 
     return (
       <div className="rightpanel">
