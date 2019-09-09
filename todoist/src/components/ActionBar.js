@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Form from "../components/Form";
 import List from "../components/List";
+import Main from "../components/Main";
 
 class ActionBar extends Component {
   constructor(props) {
@@ -9,11 +10,10 @@ class ActionBar extends Component {
   }
   render() {
     return (
-      <div className="wrapper">
-        <div className="five">
-          <Form />
-          <List />
-        </div>
+      <div>
+        <Form />
+        <List />
+        <Main />
       </div>
     );
   }

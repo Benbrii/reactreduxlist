@@ -20,7 +20,7 @@ class ConnectedList extends Component {
 
     return (
       <div className="rightpanel">
-        <ul className="ulperso">
+        <ul className="one ulperso">
           {items.length > 0 &&
             items.map((item, index) => (
               /* <button onClick={() => this.delete(index)} key={index}>
@@ -50,13 +50,14 @@ class ConnectedList extends Component {
 
 const mapStateToProps = state => {
   return {
-    items: state.task.items, idActive: state.task.idActive, itemsCompleted: state.task.itemsCompleted
-  }
+    items: state.task.items,
+    idActive: state.task.idActive,
+    itemsCompleted: state.task.itemsCompleted
+  };
   /* return {
     items: items.filter((item => item === itemsCompleted ))
   }*/
 };
-
 
 const mapDispatchToProps = dispatch => {
   return {

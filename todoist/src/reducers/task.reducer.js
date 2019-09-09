@@ -17,7 +17,19 @@ const task = (state = initialState, action) => {
     case itemConst.COMPLETED_ITEM:
       let newitems = state.items.filter((item, i) => i !== state.idActive);
       return { ...state, items: newitems, itemsCompleted: action.payload };
-
+    case itemConst.ADD_DESCRIPTION:
+      let newItems = [];
+      state.items.map((item, index) => {
+        if (index === state.idActive) {
+          // Modifier la description
+          item.description = action.payload.description;
+          newItems.push(item);
+        } else {
+          // Retourner item dans le tableau
+          newItems.push(item);
+        }
+      });
+      return { ...state, items: newItems };
     //{ ...state, itemsCompleted: action.payload };
     default:
       return state;
