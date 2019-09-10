@@ -5,26 +5,21 @@ class Modal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDate: ""
+      startDate: new Date()
     };
-    this.handleDate = this.handleDate.bind(this);
-    this.handleStartDate = this.handleStartDate.bind(this);
   }
 
-  handleDate(date) {
-    this.props.handleClose();
-    this.setState({
-      startDate: date
-    });
-  }
+  handleChangeDate = startdate => {
+    console.log(startdate);
+    const formatedDate = startdate.toLocaleDateString("fr-FR");
+    console.log(formatedDate);
 
-  handleStartDate(date) {
     this.setState({
-      startDate: date
+      startDate: formatedDate
     });
 
-    console.log(this.startDate);
-  }
+    this.props.callbackFromParent(formatedDate);
+  };
 
   render() {
     const { startDate } = this.state;
@@ -36,9 +31,9 @@ class Modal extends Component {
       <div>
         <DatePicker
           selected={startDate}
-          onChange={this.handleStartDate}
+          onChange={this.handleChangeDate}
           name="startDate"
-          dateFormat="dd/MM/yyyy"
+          dateFormat="MM/DD/YYYY"
           inline
         />
       </div>

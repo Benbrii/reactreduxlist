@@ -30,6 +30,19 @@ const task = (state = initialState, action) => {
         }
       });
       return { ...state, items: newItems };
+    case itemConst.ADD_DATE:
+      let newItemswithDate = [];
+      state.items.map((item, index) => {
+        if (index === state.idActive) {
+          // Modifier la description
+          item.formatedDate = action.payload.formatedDate;
+          newItemswithDate.push(item);
+        } else {
+          // Retourner item dans le tableau
+          newItemswithDate.push(item);
+        }
+      });
+      return { ...state, items: newItemswithDate };
     //{ ...state, itemsCompleted: action.payload };
     default:
       return state;

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setIdActive } from "../actions/idactive.action";
+import Form from "../components/Form";
 // import * as actionTypes from "../actions/index";
 import Profile_pic from "../assets/images/Profile_pic.png";
 
@@ -18,15 +19,16 @@ class ConnectedList extends Component {
     const { items, setIdActive } = this.props;
 
     return (
-      <div className="rightpanel">
-        <ul className="one ulperso">
+      <div className="five">
+        <Form />
+        <ul className="ulperso">
           {items.length > 0 &&
             items.map((item, index) => (
               /* <button onClick={() => this.delete(index)} key={index}>
                 {el.title}
               </button> */
               <div
-                className="five taskrectangle"
+                className="taskrectangle"
                 key={index}
                 onClick={() => setIdActive(index)}
               >
@@ -39,6 +41,11 @@ class ConnectedList extends Component {
                 <p className="task" classkey={index}>
                   {item.title}
                 </p>
+                {/* {item.startDateFromModal !== null ? (
+                  <p className="date" classkey={index}>
+                    {item.startDateFromModal}
+                  </p>
+                ) : null} */}
               </div>
             ))}
         </ul>

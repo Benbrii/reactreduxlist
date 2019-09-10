@@ -6,7 +6,7 @@ $colors: (
 );
 
 $fonts: (
-  primary: "Roboto Medium"
+  primary: "Roboto"
 );
 
 body,
@@ -37,63 +37,70 @@ html {
     margin-top: 5px;
   }
   .titletaskbg {
-    width: 75%;
+    width: 100%;
     height: 100%;
     box-shadow: inset 0 -1px 0 #e4e8eb;
     background-color: map-get($colors, secondary);
   }
   .titletask {
-    width: 50%;
-    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 142px;
+    height: 28px;
     color: map-get($colors, primary);
+    font-family: "Roboto";
     font-size: 18px;
-    font-weight: 900;
-    line-height: 20px;
-    margin-left: 10px;
-    margin-top: 5.5%;
+    font-weight: bold;
+    margin-top: 6%;
+    margin-left: 3%;
   }
   .titletaskselected {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     color: #252627;
     font-size: 18px;
     line-height: 28px;
+    margin-left: 3%;
   }
   .rectanglebutton {
-    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     height: 50%;
     border-radius: 3px;
     border: 1px solid #e4e8eb;
     background-color: map-get($colors, primary);
-    margin-top: 6%;
     outline: none;
+    align-self: center;
   }
   .crosscheck {
-    margin-right: 85%;
-    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 5%;
   }
   .markasdone {
-    width: 150px;
-    height: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     color: #9b9c9c;
     font-family: map-get($fonts, primary);
-    font-size: 10.8px;
     font-weight: 500;
     text-transform: uppercase;
-    margin-top: -15px;
-    margin-left: 15%;
+    margin-left: 10px;
+    margin-top: 5%;
+  }
+  .input {
+    display: flex;
+    flex-direction: column;
   }
   .profilpic {
     position: absolute;
   }
-  .leftpanel {
-    width: 360px;
-    height: 50px;
-    background-color: map-get($colors, primary);
-  }
-  .rightpanel {
-    position: absolute;
-  }
   .form {
-    width: 350px;
+    width: 10%;
     height: 28px;
     color: #c4c4c4;
     font-family: map-get($fonts, primary);
@@ -101,8 +108,6 @@ html {
     font-weight: 500;
     line-height: 28px;
     border: none;
-    margin-top: 3%;
-    margin-left: 3%;
     outline: none;
   }
   .descriptionform {
@@ -117,12 +122,18 @@ html {
     font-weight: 500;
   }
   .taskrectangle {
-    width: 200px;
     height: 60px;
     background-color: map-get($colors, primary);
     display: flex;
-    flex-direction: row;
-    margin-left: 100%;
+    flex-direction: column;
+    border-left: 4px solid #fff;
+    color: #263238;
+    font-weight: bold;
+    padding-left: 10px;
+  }
+  .input_of_task {
+    width: 94%;
+    margin-top: -3px;
   }
   .ulperso {
     width: 1vw;
@@ -142,6 +153,28 @@ html {
     z-index: 1;
     margin-top: 5%;
     margin-left: 30%;
+  }
+  .task_input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 371px;
+    height: 60px;
+    box-shadow: inset 0 -1px 0 #e4e8eb;
+    background-color: #ffffff;
+    margin-left: -3%;
+  }
+  .input_of_task {
+    color: #c4c4c4;
+    font-family: "Roboto Medium";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 28px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    outline: none;
   }
   .mainbutton {
     width: 148px;
@@ -213,6 +246,13 @@ html {
     padding: 10px;
     margin-left: -10%;
   }
+  .position_of_date {
+    margin-left: 25%;
+  }
+  .react-datepicker {
+    position: absolute;
+    background-color: #ffff;
+  }
 }
 
 // Grid
@@ -224,15 +264,18 @@ html {
   grid-auto-rows: minmax(100px);
 }
 .one {
-  grid-column: 1 / 5;
+  grid-column: 1 / 4;
+  grid-row: 1;
 }
 .two {
-  grid-column: 5 / 11;
+  grid-column: 4 / 11;
   grid-row: 1;
 }
 .tree {
   grid-column: 11 / 13;
   grid-row: 1;
+  display: flex;
+  justify-content: flex-start;
 }
 .four {
   grid-column: 4 / 12;
@@ -240,7 +283,9 @@ html {
 }
 .five {
   display: flex;
-  grid-column: 1 / 2;
+  flex-direction: column;
+  justify-content: flex-start;
+  grid-column: 1 / 4;
   grid-row: 1;
 }
 .six {

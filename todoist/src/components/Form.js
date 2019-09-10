@@ -28,17 +28,15 @@ class ConnectedForm extends Component {
     const { title } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit} className="input">
-        <div className="leftpanel">
-          <input
-            type="text"
-            className="form"
-            id="title"
-            value={title}
-            onChange={this.handleChange}
-            placeholder="+ Ajouter une tache..."
-          />
-        </div>
+      <form className="task_input" onSubmit={this.handleSubmit}>
+        <input
+          className="input_of_task"
+          type="text"
+          id="title"
+          value={title}
+          onChange={this.handleChange}
+          placeholder="+ Ajouter une tache..."
+        />
       </form>
     );
   }

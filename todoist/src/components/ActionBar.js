@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Form from "../components/Form";
 import List from "../components/List";
 import Main from "../components/Main";
 
@@ -10,8 +9,7 @@ class ActionBar extends Component {
   }
   render() {
     return (
-      <div>
-        <Form />
+      <div className="wrapper">
         <List />
         <Main />
       </div>
