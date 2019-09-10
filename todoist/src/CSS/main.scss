@@ -41,6 +41,7 @@ html {
     height: 100%;
     box-shadow: inset 0 -1px 0 #e4e8eb;
     background-color: map-get($colors, secondary);
+    z-index: 1;
   }
   .titletask {
     display: flex;
@@ -97,7 +98,10 @@ html {
     flex-direction: column;
   }
   .profilpic {
-    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
   }
   .form {
     width: 10%;
@@ -122,18 +126,18 @@ html {
     font-weight: 500;
   }
   .taskrectangle {
+    width: 20vw;
     height: 60px;
     background-color: map-get($colors, primary);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: flex-start;
     border-left: 4px solid #fff;
     color: #263238;
     font-weight: bold;
     padding-left: 10px;
-  }
-  .input_of_task {
-    width: 94%;
-    margin-top: -3px;
+    align-self: center;
+    overflow: scroll;
   }
   .ulperso {
     width: 1vw;
@@ -144,25 +148,30 @@ html {
     color: #263238;
     font-weight: bold;
     padding-left: 10px;
+    z-index: 1;
   }
   .task {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
     color: map-get($colors, fourth);
     font-size: 14px;
     font-weight: 700;
     line-height: 20px;
-    z-index: 1;
-    margin-top: 5%;
-    margin-left: 30%;
+    margin-left: 5%;
+    margin-top: -3%;
   }
   .task_input {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    width: 371px;
-    height: 60px;
+    justify-content: flex-start;
+    width: 900px;
+    height: 65px;
     box-shadow: inset 0 -1px 0 #e4e8eb;
     background-color: #ffffff;
     margin-left: -3%;
+    border: 1px solid #c4e8eb;
   }
   .input_of_task {
     color: #c4c4c4;
@@ -170,7 +179,6 @@ html {
     font-size: 16px;
     font-weight: 500;
     line-height: 28px;
-    width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     border: none;
@@ -212,7 +220,9 @@ html {
     width: 100%;
   }
   .description_title {
-    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
   }
   .input_description_inner {
     width: 90%;
@@ -227,8 +237,8 @@ html {
     border-radius: 3px;
     background-color: map-get($colors, secondary);
     justify-content: flex-end;
-    margin-left: 79%;
     margin-top: 1.5%;
+    margin-right: 5%;
     border: 1px solid #c4e8eb;
     outline: none;
   }
@@ -244,7 +254,17 @@ html {
   }
   .icon_paper_pen {
     padding: 10px;
-    margin-left: -10%;
+  }
+  .description_top_title {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 15px;
+  }
+  .description_button_end {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
   }
   .position_of_date {
     margin-left: 25%;

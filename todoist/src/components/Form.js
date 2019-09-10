@@ -35,7 +35,7 @@ class ConnectedForm extends Component {
           id="title"
           value={title}
           onChange={this.handleChange}
-          placeholder="+ Ajouter une tache..."
+          placeholder="+ Ajouter une tâche..."
         />
       </form>
     );

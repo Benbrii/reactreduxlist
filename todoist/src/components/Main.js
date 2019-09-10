@@ -19,15 +19,15 @@ class ConnectedMain extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  getDatefromChild = formatedDate => {
+  getDatefromChild = startdate => {
     this.setState({
-      startDateFromModal: formatedDate,
+      startDateFromModal: startdate,
       show: false
     });
 
     // console.log(startDate);
 
-    this.props.addDate({ formatedDate });
+    this.props.addDate({ startdate });
   };
 
   showModal = () => {
@@ -64,7 +64,7 @@ class ConnectedMain extends Component {
         </button>
         {startDateFromModal !== null && startDateFromModal !== undefined ? (
           <button className="mainbutton" onClick={this.showModal}>
-            {<p className="position_of_date">{items[idActive].formatedDate}</p>}
+            {<p className="position_of_date">{items[idActive].startdate}</p>}
           </button>
         ) : (
           <button className="mainbutton" onClick={this.showModal}>
@@ -80,10 +80,10 @@ class ConnectedMain extends Component {
           callbackFromParent={this.getDatefromChild}
         />
         <div className="description_rectangle">
-          <p className="description_title">
+          <div className="description_top_title">
             <img src={PaperPen} alt="paperpenicon" className="icon_paper_pen" />
-            Description
-          </p>
+            <p className="description_title">Description</p>
+          </div>
           <form
             onSubmit={this.handleSubmit}
             className="input_description_inner"
@@ -103,9 +103,11 @@ class ConnectedMain extends Component {
               />
             </div>
           </form>
-          <button className="comment_button" onClick={this.handleSubmit}>
-            <p className="commenter">Commenter</p>
-          </button>
+          <div className="description_button_end">
+            <button className="comment_button" onClick={this.handleSubmit}>
+              <p className="commenter">Commenter</p>
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -119,7 +121,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     addDescription: description => dispatch(addDescription(description)),
-    addDate: formatedDate => dispatch(addDate(formatedDate))
+    addDate: startdate => dispatch(addDate(startdate))
   };
 };
 

@@ -35,7 +35,7 @@ const task = (state = initialState, action) => {
       state.items.map((item, index) => {
         if (index === state.idActive) {
           // Modifier la description
-          item.formatedDate = action.payload.formatedDate;
+          item.startdate = action.payload.startdate;
           newItemswithDate.push(item);
         } else {
           // Retourner item dans le tableau
