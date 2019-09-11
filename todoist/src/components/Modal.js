@@ -11,9 +11,7 @@ class Modal extends Component {
   }
 
   handleChangeDate = startdate => {
-    console.log(startdate);
     const formatedDate = startdate.toLocaleDateString("fr-FR");
-    console.log(formatedDate);
 
     this.setState({
       startDate: formatedDate
@@ -24,7 +22,6 @@ class Modal extends Component {
 
   render() {
     const { startDate } = this.state;
-    console.log(startDate);
 
     if (!this.props.show) {
       return null;

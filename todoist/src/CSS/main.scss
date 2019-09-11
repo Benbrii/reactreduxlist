@@ -128,7 +128,7 @@ html {
     font-weight: 500;
   }
   .taskrectangle {
-    width: 30vw;
+    width: 24vw;
     height: 60px;
     background-color: map-get($colors, primary);
     display: flex;
@@ -155,6 +155,7 @@ html {
     height: 68vh;
   }
   .position_of_date_in_list {
+    position: absolute;
     width: 64px;
     height: 15px;
     opacity: 0.8;
@@ -162,8 +163,7 @@ html {
     font-family: "Roboto";
     font-size: 12px;
     font-weight: 400;
-    margin-left: 40%;
-    margin-top: 5px;
+    margin-left: 17%;
   }
   .task {
     display: flex;
@@ -172,7 +172,7 @@ html {
     align-self: center;
     color: map-get($colors, fourth);
     font-size: 14px;
-    font-weight: 700;
+    font-weight: bold;
     line-height: 20px;
     margin-left: 5%;
     margin-top: -3%;

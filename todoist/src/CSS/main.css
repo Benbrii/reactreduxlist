@@ -197,7 +197,7 @@ html .descriptionform {
 
 body .taskrectangle,
 html .taskrectangle {
-  width: 30vw;
+  width: 24vw;
   height: 60px;
   background-color: #fff;
   display: -webkit-box;
@@ -240,6 +240,7 @@ html .ulcontainer {
 
 body .position_of_date_in_list,
 html .position_of_date_in_list {
+  position: absolute;
   width: 64px;
   height: 15px;
   opacity: 0.8;
@@ -247,8 +248,7 @@ html .position_of_date_in_list {
   font-family: "Roboto";
   font-size: 12px;
   font-weight: 400;
-  margin-left: 40%;
-  margin-top: 5px;
+  margin-left: 17%;
 }
 
 body .task,
@@ -267,7 +267,7 @@ html .task {
       align-self: center;
   color: #292b2c;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: bold;
   line-height: 20px;
   margin-left: 5%;
   margin-top: -3%;

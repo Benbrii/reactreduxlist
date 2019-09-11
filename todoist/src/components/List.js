@@ -4,6 +4,7 @@ import { setIdActive } from "../actions/idactive.action";
 import Form from "../components/Form";
 // import * as actionTypes from "../actions/index";
 import Profile_pic from "../assets/images/Profile_pic.png";
+import moment from "moment";
 
 class ConnectedList extends Component {
   constructor(props) {
@@ -11,12 +12,37 @@ class ConnectedList extends Component {
     this.state = {};
   }
 
+  /* componentDidCatch() {
+    const { items, idActive } = this.props;
+    console.log(items[idActive].startdate);
+    console.log(
+      moment(items[idActive].startdate, "DD/MM/YYYY")
+        .toDate()
+        .toLocaleDateString("fr-FR")
+    );
+
+    const todayDate = moment(items[idActive].startdate, "DD/MM/YYYY")
+      .toDate()
+      .toLocaleDateString("fr-FR");
+    if (todayDate === items[idActive].startdate) {
+      return this.setState({
+        isTodayDate: "Aujourd'hui"
+      });
+    } else {
+      return null;
+    }
+  } */
+
   delete(index) {
     this.props.deleteItem(index);
   }
 
   render() {
-    const { items, setIdActive, idActive } = this.props;
+    const { items, setIdActive } = this.props;
+    const isTodayDate = moment(new Date(), "DD/MM/YYYY")
+      .toDate()
+      .toLocaleDateString("fr-FR");
+    console.log(isTodayDate);
 
     return (
       <div className="five">
@@ -43,19 +69,18 @@ class ConnectedList extends Component {
                   <p className="task" classkey={index}>
                     {item.title}
                   </p>
-                  {idActive !== null &&
-                  idActive !== undefined &&
+                  {items[index].startdate === isTodayDate &&
+                  items.length !== 0 &&
+                  items[index].startdate !== undefined ? (
+                    <p className="position_of_date_in_list">Aujourd'hui</p>
+                  ) : null}
+                  {items[index].startdate !== isTodayDate &&
                   items.length !== 0 &&
                   items[index].startdate !== undefined ? (
                     <p className="position_of_date_in_list">
                       {items[index].startdate}
                     </p>
                   ) : null}
-                  {/* {item.startDateFromModal !== null ? (
-                  <p className="date" classkey={index}>
-                    {item.startDateFromModal}
-                  </p>
-                ) : null} */}
                 </div>
               ))}
           </ul>
