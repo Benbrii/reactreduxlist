@@ -20,7 +20,12 @@ class ConnectedForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { title } = this.state;
-    this.props.addItem({ title });
+    title.trim("");
+    if (title.length === 0) {
+      alert("Une tâche ne peut pas être vide.");
+    } else {
+      this.props.addItem({ title });
+    }
     this.setState({ title: "" });
   }
 

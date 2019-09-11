@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import DatePicker from "react-datepicker";
+import moment from "moment";
 
 class Modal extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class Modal extends Component {
 
   render() {
     const { startDate } = this.state;
+    console.log(startDate);
 
     if (!this.props.show) {
       return null;
@@ -30,10 +32,9 @@ class Modal extends Component {
     return (
       <div>
         <DatePicker
-          selected={startDate}
+          selected={moment(startDate, "DD/MM/YYYY").toDate()}
           onChange={this.handleChangeDate}
           name="startDate"
-          dateFormat="MM/DD/YYYY"
           inline
         />
       </div>

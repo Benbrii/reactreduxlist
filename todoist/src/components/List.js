@@ -16,39 +16,50 @@ class ConnectedList extends Component {
   }
 
   render() {
-    const { items, setIdActive } = this.props;
+    const { items, setIdActive, idActive } = this.props;
 
     return (
       <div className="five">
         <Form />
-        <ul className="ulperso">
-          {items.length > 0 &&
-            items.map((item, index) => (
-              /* <button onClick={() => this.delete(index)} key={index}>
+        <div className="ulcontainer">
+          <ul className="ulperso">
+            {items.length > 0 &&
+              items.map((item, index) => (
+                /* <button onClick={() => this.delete(index)} key={index}>
                 {el.title}
               </button> */
-              <div
-                className="taskrectangle"
-                key={index}
-                onClick={() => setIdActive(index)}
-              >
-                <img
-                  src={Profile_pic}
-                  alt="profilepicture"
-                  className="profilpic"
-                  key={item}
-                />
-                <p className="task" classkey={index}>
-                  {item.title}
-                </p>
-                {/* {item.startDateFromModal !== null ? (
+                <div
+                  className="taskrectangle"
+                  tabIndex="1"
+                  key={index}
+                  onClick={() => setIdActive(index)}
+                >
+                  <img
+                    src={Profile_pic}
+                    alt="profilepicture"
+                    className="profilpic"
+                    key={item}
+                  />
+                  <p className="task" classkey={index}>
+                    {item.title}
+                  </p>
+                  {idActive !== null &&
+                  idActive !== undefined &&
+                  items.length !== 0 &&
+                  items[index].startdate !== undefined ? (
+                    <p className="position_of_date_in_list">
+                      {items[index].startdate}
+                    </p>
+                  ) : null}
+                  {/* {item.startDateFromModal !== null ? (
                   <p className="date" classkey={index}>
                     {item.startDateFromModal}
                   </p>
                 ) : null} */}
-              </div>
-            ))}
-        </ul>
+                </div>
+              ))}
+          </ul>
+        </div>
       </div>
     );
   }

@@ -19,7 +19,7 @@ class ConnectedTitleBar extends Component {
         </div>
         <div className="two">
           <p className="titletaskselected">
-            {idActive !== null && idActive !== undefined
+            {idActive !== null && idActive !== undefined && items.length !== 0
               ? items[idActive].title
               : "Sélectionner une tâche..."}
           </p>

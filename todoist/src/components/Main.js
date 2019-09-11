@@ -24,7 +24,6 @@ class ConnectedMain extends Component {
       startDateFromModal: startdate,
       show: false
     });
-
     // console.log(startDate);
 
     this.props.addDate({ startdate });
@@ -50,10 +49,9 @@ class ConnectedMain extends Component {
   }
 
   render() {
-    const { description, startDateFromModal } = this.state;
+    const { description } = this.state;
     const { idActive, items } = this.props;
     // console.log(startDateFromModal);
-    console.log(startDateFromModal);
 
     return (
       <div className="six">
@@ -62,9 +60,16 @@ class ConnectedMain extends Component {
           <div className="position_of_plus">+</div>
           <p className="position_of_button_name">Attribuer à</p>
         </button>
-        {startDateFromModal !== null && startDateFromModal !== undefined ? (
+        {idActive !== null &&
+        idActive !== undefined &&
+        items.length !== 0 &&
+        items[idActive].startdate !== undefined ? (
           <button className="mainbutton" onClick={this.showModal}>
-            {<p className="position_of_date">{items[idActive].startdate}</p>}
+            <img src={Oval} alt="ovalicon" className="icon_oval" />
+            <div className="position_of_clock">
+              <img src={Clock} alt="clockicon" className="icon_clock" />
+            </div>
+            <p className="position_of_date">{items[idActive].startdate}</p>
           </button>
         ) : (
           <button className="mainbutton" onClick={this.showModal}>
@@ -96,9 +101,12 @@ class ConnectedMain extends Component {
                 value={description}
                 onChange={this.handleChange}
                 placeholder={
-                  idActive !== null && idActive !== undefined
+                  idActive !== null &&
+                  idActive !== undefined &&
+                  items.length !== 0 &&
+                  items[idActive].description !== undefined
                     ? items[idActive].description
-                    : "Aucune description pour le moment"
+                    : "Ajouter une description"
                 }
               />
             </div>
