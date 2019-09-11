@@ -1,12 +1,18 @@
 import * as itemConst from "../constants/action-types";
 import * as idConst from "../constants/action-types";
-// import _ from "lodash";
+
+// initialisation des différents state
 
 const initialState = {
   items: [],
   itemsCompleted: null,
   idActive: null
 };
+
+// créer une constante "task" avec le state initial et lui donner les actions
+// puis on switch case les différents type d'action
+// chaque case return un NOUVEAU state ou un concaténation dans un state vide
+// (puis penser à toujours recréer une variable, puis de modifier entièrement le state du reducer avec cette nouvelle variable, CF case ADD_DATE ou ADD_DESCRIPTION)
 
 const task = (state = initialState, action) => {
   switch (action.type) {
@@ -19,6 +25,7 @@ const task = (state = initialState, action) => {
       return { ...state, items: newitems, itemsCompleted: action.payload };
     case itemConst.ADD_DESCRIPTION:
       let newItems = [];
+      // eslint-disable-next-line array-callback-return
       state.items.map((item, index) => {
         if (index === state.idActive) {
           // Modifier la description
@@ -32,18 +39,18 @@ const task = (state = initialState, action) => {
       return { ...state, items: newItems };
     case itemConst.ADD_DATE:
       let newItemswithDate = [];
+      // eslint-disable-next-line array-callback-return
       state.items.map((item, index) => {
         if (index === state.idActive) {
-          // Modifier la description
+          // Modifier/ajoute la date
           item.startdate = action.payload.startdate;
           newItemswithDate.push(item);
         } else {
-          // Retourner item dans le tableau
+          // Retourner le nouveau tableau avec la date
           newItemswithDate.push(item);
         }
       });
       return { ...state, items: newItemswithDate };
-    //{ ...state, itemsCompleted: action.payload };
     default:
       return state;
   }

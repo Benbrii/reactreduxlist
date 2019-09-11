@@ -11,7 +11,6 @@ class ConnectedTitleBar extends Component {
 
   render() {
     const { idActive, items, completedItem } = this.props;
-    console.log(items);
 
     return (
       <div className="wrapper">

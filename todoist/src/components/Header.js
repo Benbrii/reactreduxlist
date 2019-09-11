@@ -6,10 +6,20 @@ class Header extends Component {
     super(props);
     this.state = {};
   }
+
+  refreshPage() {
+    window.location.reload();
+  }
+
   render() {
     return (
       <div>
-        <img className="logo" src={Logo} alt="logo" />
+        <img
+          className="logo"
+          src={Logo}
+          alt="logo"
+          onClick={this.refreshPage}
+        />
       </div>
     );
   }

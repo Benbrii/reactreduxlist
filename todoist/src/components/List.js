@@ -12,27 +12,6 @@ class ConnectedList extends Component {
     this.state = {};
   }
 
-  /* componentDidCatch() {
-    const { items, idActive } = this.props;
-    console.log(items[idActive].startdate);
-    console.log(
-      moment(items[idActive].startdate, "DD/MM/YYYY")
-        .toDate()
-        .toLocaleDateString("fr-FR")
-    );
-
-    const todayDate = moment(items[idActive].startdate, "DD/MM/YYYY")
-      .toDate()
-      .toLocaleDateString("fr-FR");
-    if (todayDate === items[idActive].startdate) {
-      return this.setState({
-        isTodayDate: "Aujourd'hui"
-      });
-    } else {
-      return null;
-    }
-  } */
-
   delete(index) {
     this.props.deleteItem(index);
   }
@@ -42,7 +21,6 @@ class ConnectedList extends Component {
     const isTodayDate = moment(new Date(), "DD/MM/YYYY")
       .toDate()
       .toLocaleDateString("fr-FR");
-    console.log(isTodayDate);
 
     return (
       <div className="five">

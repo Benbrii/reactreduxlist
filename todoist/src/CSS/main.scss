@@ -35,6 +35,7 @@ html {
     width: 120px;
     height: 47px;
     margin-top: 5px;
+    cursor: pointer;
   }
   .titletaskbg {
     display: flex;
@@ -77,6 +78,7 @@ html {
     background-color: map-get($colors, primary);
     outline: none;
     align-self: center;
+    cursor: pointer;
   }
   .crosscheck {
     display: flex;
@@ -139,6 +141,7 @@ html {
     font-weight: bold;
     padding-left: 10px;
     align-self: center;
+    cursor: pointer;
   }
   .taskrectangle:focus {
     background-color: map-get($colors, third);
@@ -213,6 +216,7 @@ html {
     outline: none;
     margin-left: 3%;
     margin-bottom: 3%;
+    cursor: pointer;
   }
   .datepickermodal {
     position: absolute;
@@ -262,6 +266,7 @@ html {
     margin-top: 2vh;
     border: 1px solid #c4e8eb;
     outline: none;
+    cursor: pointer;
   }
   .commenter {
     width: 77px;

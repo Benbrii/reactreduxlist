@@ -26,6 +26,7 @@ html .logo {
   width: 120px;
   height: 47px;
   margin-top: 5px;
+  cursor: pointer;
 }
 
 body .titletaskbg,
@@ -105,6 +106,7 @@ html .rectanglebutton {
   outline: none;
   -ms-flex-item-align: center;
       align-self: center;
+  cursor: pointer;
 }
 
 body .crosscheck,
@@ -216,6 +218,7 @@ html .taskrectangle {
   padding-left: 10px;
   -ms-flex-item-align: center;
       align-self: center;
+  cursor: pointer;
 }
 
 body .taskrectangle:focus,
@@ -332,6 +335,7 @@ html .mainbutton {
   outline: none;
   margin-left: 3%;
   margin-bottom: 3%;
+  cursor: pointer;
 }
 
 body .datepickermodal,
@@ -406,6 +410,7 @@ html .comment_button {
   margin-top: 2vh;
   border: 1px solid #c4e8eb;
   outline: none;
+  cursor: pointer;
 }
 
 body .commenter,

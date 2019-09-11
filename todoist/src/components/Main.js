@@ -19,16 +19,17 @@ class ConnectedMain extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  // function pour récupérer la date que l'on chope dans la modal
   getDatefromChild = startdate => {
     this.setState({
       startDateFromModal: startdate,
       show: false
     });
-    // console.log(startDate);
 
     this.props.addDate({ startdate });
   };
 
+  // functions "show" pour dévoiler la modal au click
   showModal = () => {
     this.setState({ show: true });
   };
@@ -37,10 +38,12 @@ class ConnectedMain extends Component {
     this.setState({ show: false });
   };
 
+  // Dans description, on va récupérer "l'event" puis le mettre dans le state
   handleChange(event) {
     this.setState({ [event.target.id]: event.target.value });
   }
 
+  // Le state a changé grâce à handleChange, ici le handleSubmit va l'envoyer en props à l'action addDescription
   handleSubmit(event) {
     event.preventDefault();
     const { description } = this.state;
@@ -51,7 +54,6 @@ class ConnectedMain extends Component {
   render() {
     const { description } = this.state;
     const { idActive, items } = this.props;
-    // console.log(startDateFromModal);
 
     return (
       <div className="six">
@@ -60,6 +62,12 @@ class ConnectedMain extends Component {
           <div className="position_of_plus">+</div>
           <p className="position_of_button_name">Attribuer à</p>
         </button>
+
+        {/* 
+          on a récup les props du reducer dans le render, maintenant on va mettre une ternaire qui dit:
+          si j'ai pas de tâche sélectionner, j'affiche rien, sinon j'affiche la tâche sélectionnée
+        */}
+
         {idActive !== null &&
         idActive !== undefined &&
         items.length !== 0 &&
@@ -80,6 +88,10 @@ class ConnectedMain extends Component {
             <p className="position_of_button_name">Echéance</p>
           </button>
         )}
+        {/*
+           elle est pas belle ma ternaire ?
+           La modal est placée en dessous, mais la position importe peu, car on ne l'affiche que selon le state de "show"
+        */}
         <Modal
           show={this.state.show}
           callbackFromParent={this.getDatefromChild}
@@ -89,6 +101,10 @@ class ConnectedMain extends Component {
             <img src={PaperPen} alt="paperpenicon" className="icon_paper_pen" />
             <p className="description_title">Description</p>
           </div>
+          {/*
+            Ici via un formulaire, on va pouvoir mettre à jour notre reducer au handleSubmit
+            Pour la beauté du geste, j'ai mis une ternaire dans le placeholder histoire qu'on puisse afficher notre donnée qu'on vient de mettre dans notre reducer
+          */}
           <form
             onSubmit={this.handleSubmit}
             className="input_description_inner"
