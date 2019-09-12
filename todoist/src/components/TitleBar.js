@@ -40,7 +40,10 @@ class ConnectedTitleBar extends Component {
 }
 
 const mapStateToProps = state => {
-  return { idActive: state.task.idActive, items: state.task.items };
+  return {
+    idActive: state.task.idActive,
+    items: state.task.items
+  };
 };
 
 const mapDispatchToProps = dispatch => {

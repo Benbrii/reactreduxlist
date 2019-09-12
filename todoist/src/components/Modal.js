@@ -10,6 +10,7 @@ class Modal extends Component {
     };
   }
 
+  // au handleChangeDate
   handleChangeDate = startdate => {
     const formatedDate = startdate.toLocaleDateString("fr-FR");
 
@@ -23,10 +24,7 @@ class Modal extends Component {
   render() {
     const { startDate } = this.state;
 
-    if (!this.props.show) {
-      return null;
-    }
-    return (
+    return !this.props.show ? (
       <div>
         <DatePicker
           selected={moment(startDate, "DD/MM/YYYY").toDate()}
@@ -35,7 +33,7 @@ class Modal extends Component {
           inline
         />
       </div>
-    );
+    ) : null;
   }
 }
 

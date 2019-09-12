@@ -20,6 +20,7 @@ class ConnectedMain extends Component {
   }
 
   // function pour récupérer la date que l'on chope dans la modal
+
   getDatefromChild = startdate => {
     this.setState({
       startDateFromModal: startdate,
@@ -127,6 +128,11 @@ class ConnectedMain extends Component {
               />
             </div>
           </form>
+          {/*
+            On oublie pas de mettre un bouton handleSubmit au onClick pour commenter,
+            le formulaire ayant était fait en textarea, on ne peut pas submit en appuyant sur entrée après avoir tapé son commentaire,
+            vous pouvez changer cela si vous le souhaitez
+          */}
           <div className="description_button_end">
             <button className="comment_button" onClick={this.handleSubmit}>
               <p className="commenter">Commenter</p>
@@ -138,10 +144,12 @@ class ConnectedMain extends Component {
   }
 }
 
+// mstp pour récupérer les props de notre reducer
 const mapStateToProps = state => {
   return { idActive: state.task.idActive, items: state.task.items };
 };
 
+// mdtp pour envoyer notre description & notre startdate
 const mapDispatchToProps = dispatch => {
   return {
     addDescription: description => dispatch(addDescription(description)),
@@ -149,6 +157,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
+// on oublie pas de connect(nos mstp & mdtp à notre redux)
 const Main = connect(
   mapStateToProps,
   mapDispatchToProps
