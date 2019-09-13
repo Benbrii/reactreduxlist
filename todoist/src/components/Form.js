@@ -20,7 +20,9 @@ class ConnectedForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     let { title } = this.state;
+    // trim pour éviter d'ajouter une tâche composé d'espace vide
     title = title.trim("");
+    // + condition pour éviter d'ajouter une tâche vide
     if (title.length === 0) {
       alert("Une tâche ne peut pas être vide.");
     } else {
@@ -53,6 +55,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
+// ne pas oublier le "null" avec le dispatch car on ne récupére aucune props
 const Form = connect(
   null,
   mapDispatchToProps

@@ -19,6 +19,9 @@ class ConnectedTitleBar extends Component {
         </div>
         <div className="two">
           <p className="titletaskselected">
+            {/**
+             * Ternaire pour afficher le title de l'item en question via son idActive
+             */}
             {idActive !== null && idActive !== undefined && items.length !== 0
               ? items[idActive].title
               : "Sélectionner une tâche..."}
@@ -49,7 +52,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     completedItem: payload => dispatch(completedItem(payload))
-    // deleteItem: index => dispatch(actionTypes.deleteItem(index))
   };
 };
 
